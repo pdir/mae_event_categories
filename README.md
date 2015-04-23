@@ -1,14 +1,14 @@
 mae_event_categories
 ====================
 
-purpose:
---------
+purpose
+-------
 if you have lots of events and using different calendars is not enough to organize your events, this plugin allows the definition of additional categories for filtering events in eventlist frontend modules
 
 
 
-description:
-------------
+description
+-----------
 mae_event_categories adds a global operation to the calendar module which allows to define a non-hierarchical list of categories.
 One or more of these categories can be assigned to an event.
 The eventlist module is extended by the possibility to specify, which categories should be shown in the list.
@@ -21,8 +21,8 @@ You may filter events by category to see, if it is still assigned anywhere, befo
 
 
 
-customized places within contao:
------------------------------
+customized places within contao
+-------------------------------
 - Account Manager / [Users, User groups]:
   new field "Manage event categories" on top of "Calendar permissions" fieldset
 
