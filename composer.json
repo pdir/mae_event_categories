@@ -1,0 +1,34 @@
+{
+	"name": "marebe1602/mae_event_categories",
+	"type": "contao-module",
+	"description": "this plugin allows the definition of additional categories for filtering events in eventlist frontend modules",
+	"license": "LGPL-3.0+",
+    "keywords": ["contao", "extension", "event", "categories", "category", "filter", "eventlist"],
+    "homepage": "http://www.martin-eberhardt.com/mae_event_categories.html",
+    "authors":[
+      {
+        "name":"Martin Eberhardt",
+        "homepage":"http://www.martin-eberhardt.com",
+        "role":"Developer"
+      }
+    ],
+    "support":{
+      "issues":"https://github.com/marebe1602/mae_event_categories/issues",
+      "source":"https://github.com/marebe1602/mae_event_categories"
+    },
+    "require":{
+      "php":">=5.3",
+      "contao/core":">=3.0.6,<4",
+      "contao-community-alliance/composer-installer":"*"
+    },
+    "replace":{
+      "contao-legacy/mae_event_categories":"self.version"
+    },
+    "extra":{
+      "contao":{
+        "sources":{
+          "":"system/modules/mae_event_categories"
+        }
+      }
+    }
+}
