@@ -32,3 +32,6 @@ customized places within contao
 
 - Themes / Frontend modules:
   new field "Event categories" in frontend module eventlist (tl_module)
+
+More info at:
+http://www.martin-eberhardt.com/mae_event_categories.html
