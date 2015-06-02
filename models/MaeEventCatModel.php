@@ -19,10 +19,10 @@ namespace MaeEventCategories;
 class MaeEventCatModel extends \Model
 {
 
-	/**
-	 * Table name
-	 * @var string
-	 */
-	protected static $strTable = 'tl_mae_event_cat';
+    /**
+     * Table name
+     * @var string
+     */
+    protected static $strTable = 'tl_mae_event_cat';
 
 }

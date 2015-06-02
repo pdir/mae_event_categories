@@ -14,13 +14,13 @@ array_insert($GLOBALS['BE_MOD']['content'], 2, $eventModAr);
 */
 
 // allow categories table in calendar module
-$GLOBALS['BE_MOD']['content']['calendar']['tables'][] = "tl_mae_event_cat"; 
+$GLOBALS['BE_MOD']['content']['calendar']['tables'][] = "tl_mae_event_cat";
 
 
 /*
  * HOOKS
  */
-$GLOBALS['TL_HOOKS']['getAllEvents'][] = array('MaeEvent', 'getAllEvents');
+$GLOBALS['TL_HOOKS']['getAllEvents'][] = array('MaeEventCategories\MaeEvent', 'getAllEvents');
 
 /**
  * Add permissions
