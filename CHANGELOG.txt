@@ -1,6 +1,6 @@
 mae_event_categories Changelog
 ==============================
 
-Version 1.0.2 (2015-06-02) hotfix model / namespace
+Version 1.0.3 (2015-06-02) hotfix model / namespace
 Version 1.0.1 (2015-06-01) added model class
 Version 1.0.0 stable (2015-04-08) Initial release.
