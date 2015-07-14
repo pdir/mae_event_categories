@@ -1,5 +1,5 @@
 <?php
-ClassLoader::addNamespace(array('MaeEventCategories'));
+ClassLoader::addNamespace('MaeEventCategories');
 
 ClassLoader::addClasses(array
 (
