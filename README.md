@@ -3,7 +3,8 @@ mae_event_categories
 
 purpose
 -------
-if you have lots of events and using different calendars is not enough to organize your events, this plugin allows the definition of additional categories for filtering events in eventlist frontend modules
+if you have lots of events and using different calendars is not enough to organize your events, this plugin allows the definition of additional categories for filtering events in eventlist frontend modules.
+It also comes with an event filter module that alows visitors to chose sthe category to be displayed in the list.
 
 
 
@@ -19,6 +20,8 @@ Eventlists without configured categories will work as if the plugin wasn't there
 If you delete a category, all references in tl_module and tl_calendar_events will be removed, too. There will be no warning, if the category is in use.
 You may filter events by category to see, if it is still assigned anywhere, before deleting (this may be improved in a later version).
 
+The category filter module allows visitors to filter the displayed events by categories.
+
 
 
 customized places within contao
@@ -32,6 +35,8 @@ customized places within contao
 
 - Themes / Frontend modules:
   new field "Event categories" in frontend module eventlist (tl_module)
+
+- new Event Category filter module
 
 More info at:
 http://www.martin-eberhardt.com/mae_event_categories.html

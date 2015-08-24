@@ -26,3 +26,8 @@ $GLOBALS['TL_HOOKS']['getAllEvents'][] = array('MaeEventCategories\MaeEvent', 'g
  * Add permissions
  */
 $GLOBALS['TL_PERMISSIONS'][] = 'maeEventCat';
+
+/**
+ * Front end modules
+ */
+$GLOBALS['FE_MOD']['events']['mae_event_filter'] = 'MaeEventCategories\ModuleFilter';

@@ -15,6 +15,7 @@
  * Namespace
  */
 namespace MaeEventCategories;
+use Contao\Input;
 
 
 /**
@@ -36,6 +37,12 @@ class MaeEvent extends \Frontend
         if (!is_array($modCats)) {
             $modCats = array();
         }
+
+        $filterCat  = Input::get('category');
+        if(!empty($filterCat) && $filterCat != "all") {
+            $modCats = array($filterCat);
+        }
+
         if (is_array($arrEvents) && count($arrEvents) > 0 && count($modCats) > 0) {
             foreach ($arrEvents as $day => $times) {
                 foreach ($times as $time => $events) {

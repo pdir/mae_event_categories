@@ -111,7 +111,7 @@ $GLOBALS['TL_DCA']['tl_mae_event_cat'] = array
     'palettes' => array
     (
         '__selector__'                => array(''),
-        'default'                     => '{title_legend},title;'
+        'default'                     => '{title_legend},title;{layout_legend},cssId,cssClass'
     ),
 
     // Subpalettes
@@ -138,6 +138,22 @@ $GLOBALS['TL_DCA']['tl_mae_event_cat'] = array
             'search'                  => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'cssId' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_mae_event_cat']['cssId'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>60, 'tl_class'=>'w50'),
+            'sql'                     => "varchar(60) NOT NULL default ''"
+        ),
+        'cssClass' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_mae_event_cat']['cssClass'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         )
     )
