@@ -26,7 +26,7 @@ class MaeEventBe extends Backend
     public function setDefaultCategories($table, $id)
     {
         $catDefault = $this->User->maeEventCatDefault;
-        if(is_array($catDefault) && count($catDefault) > 0) {
+        if($table == "tl_calendar_events" && is_array($catDefault) && count($catDefault) > 0) {
             Database::getInstance()->prepare("UPDATE tl_calendar_events SET categories=? WHERE id=?")->execute(serialize($catDefault), $id);
         }
     }
