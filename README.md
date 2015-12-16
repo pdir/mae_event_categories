@@ -27,7 +27,8 @@ The category filter module allows visitors to filter the displayed events by cat
 customized places within contao
 -------------------------------
 - Account Manager / [Users, User groups]:
-  new field "Manage event categories" on top of "Calendar permissions" fieldset
+  new legend "event categories" on top of "Calendar permissions"
+  allow edit categories and specify default categories for new events
 
 - Content / Events:
   new global operation "Categories"

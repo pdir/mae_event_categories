@@ -15,7 +15,10 @@
  * Namespace
  */
 namespace MaeEventCategories;
+use Contao\Database;
+use Contao\DataContainer;
 use Contao\Input;
+use Contao\System;
 
 
 /**

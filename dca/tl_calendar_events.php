@@ -1,5 +1,6 @@
 <?php
-// new categories blob field
+$GLOBALS['TL_DCA']['tl_calendar_events']['config']['oncreate_callback'][] = array("MaeEventCategories\\MaeEventBe", "setDefaultCategories");
+
 $GLOBALS['TL_DCA']['tl_calendar_events']['palettes']['default'] = str_replace(";{date_legend}", ";{cat_legend:hide},categories;{date_legend}", $GLOBALS['TL_DCA']['tl_calendar_events']['palettes']['default']);
 
 $GLOBALS['TL_DCA']['tl_calendar_events']['fields']['categories'] = array
