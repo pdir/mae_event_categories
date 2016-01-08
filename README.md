@@ -35,7 +35,7 @@ customized places within contao
   new field "Categories" in event header (tl_calendar_events)
 
 - Themes / Frontend modules:
-  new field "Event categories" in frontend module eventlist (tl_module)
+  new field "Event categories" in frontend modules eventlist, calendar and eventmenu (tl_module)
 
 - new Event Category filter module
 
