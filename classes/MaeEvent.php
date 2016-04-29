@@ -34,17 +34,36 @@ class MaeEvent extends \Frontend
 
     public function getAllEvents($arrEvents, $arrCalendars, $intStart, $intEnd, \Contao\Module $objModule)
     {
+        // FIXME it's possible to filter a list for categories, it doesn't allow by its configuration
         $result     = array();
-        $modCats    = unserialize($objModule->event_categories);
+        $modCats    = deserialize($objModule->event_categories, true);
+        $hasCatCfg  = is_array($modCats) && count($modCats) > 0;
 
-        if (!is_array($modCats)) {
-            $modCats = array();
+        $filterParam_ar = array('category');
+        $objFilterMod = Database::getInstance()->prepare("SELECT mae_event_catname FROM tl_module WHERE mae_event_catname != '' AND type='mae_event_filter' AND mae_event_list=?")->execute($objModule->id);
+        while($objFilterMod->fetchAssoc()) {
+            $filterParam_ar[] = $objFilterMod->mae_event_catname;
         }
 
-        $filterCat  = Input::get('category');
-        if(!empty($filterCat) && $filterCat != "all") {
-            $modCats = array($filterCat);
-        }
+        foreach ($filterParam_ar as $paramName) {
+            $filterCat  = Input::get($paramName);
+            if(!empty($filterCat) && $filterCat != "all") {
+                if(!is_numeric($filterCat)) {
+                    $objCat = Database::getInstance()->prepare("SELECT id FROM tl_mae_event_cat WHERE alias=?")->execute($filterCat);
+                    if($objCat->numRows == 1) {
+                        $filterCat = $objCat->id;
+                    }
+                }
+                if($hasCatCfg) {
+                    $modCats = array($filterCat);
+                    $hasCatCfg = false;
+                }
+                else {
+                    $modCats[] = $filterCat;
+                }
+            } // have filter value
+        } // each possible category url parameter
+
 
         if (is_array($arrEvents) && count($arrEvents) > 0 && count($modCats) > 0) {
             foreach ($arrEvents as $day => $times) {

@@ -14,7 +14,8 @@
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_mae_event_cat']['title'] = array('Name', 'category name');
+$GLOBALS['TL_LANG']['tl_mae_event_cat']['title'] = array('Name', 'category name, which is displayed in frontend');
+$GLOBALS['TL_LANG']['tl_mae_event_cat']['alias'] = array('Alias', 'The list-filter module uses this to replace the id within the url');
 $GLOBALS['TL_LANG']['tl_mae_event_cat']['cssId'] = array('CSS ID', 'CSS Id for the filter module');
 $GLOBALS['TL_LANG']['tl_mae_event_cat']['cssClass'] = array('CSS Class(es)', 'CSS classes for the filter module (space separated list)');
 

@@ -3,3 +3,4 @@ $GLOBALS['TL_LANG']['tl_module']['event_categories'] = array('Eventkategorien', 
 $GLOBALS['TL_LANG']['tl_module']['event_cat_legend'] = 'Eventkategorien';
 $GLOBALS['TL_LANG']['tl_module']['mae_event_list'] = array('Eventliste', 'Das Eventlistenmodul, das gefiltert werden soll');
 $GLOBALS['TL_LANG']['tl_module']['mae_setup_legend'] = 'Einstellungen';
+$GLOBALS['TL_LANG']['tl_module']['mae_event_catname'] = array('Filter URL Parameter', 'Falls nichts angegeben wird, lautet der Filter-Parameter "category"');

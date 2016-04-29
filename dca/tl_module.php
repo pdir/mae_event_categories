@@ -13,7 +13,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['event_categories'] = array
     'sql'                     => "blob NULL"
 );
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['mae_event_filter'] = '{title_legend},name,type;{mae_setup_legend},mae_event_list,headline;{event_cat_legend:hide},event_categories';
 $GLOBALS['TL_DCA']['tl_module']['fields']['mae_event_list'] = array(
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['mae_event_list'],
     'exclude'                 => true,
@@ -23,4 +22,12 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['mae_event_list'] = array(
     'sql'                     => "int(10) unsigned NOT NULL default '0'",
     'relation'                => array('type'=>'hasOne', 'load'=>'lazy')
 );
+$GLOBALS['TL_DCA']['tl_module']['fields']['mae_event_catname'] = array(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['mae_event_catname'],
+    'exclude'                 => true,
+    'inputType'               => 'text',
+    'eval'                    => array('maxlength'=>50, 'tl_class'=>'w50', 'rgxp'=>'alias'),
+    'sql'                     => "varchar(50) NOT NULL default ''"
+);
+$GLOBALS['TL_DCA']['tl_module']['palettes']['mae_event_filter'] = '{title_legend},name,type;{mae_setup_legend},mae_event_list,headline,mae_event_catname;{event_cat_legend:hide},event_categories';
 ?>

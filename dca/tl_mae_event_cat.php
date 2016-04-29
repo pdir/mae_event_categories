@@ -26,7 +26,8 @@ $GLOBALS['TL_DCA']['tl_mae_event_cat'] = array
         (
             'keys' => array
             (
-                'id' => 'primary'
+                'id' => 'primary',
+                'alias' => 'index'
             )
         ),
         'backlink'                    => 'do=calendar',
@@ -111,7 +112,7 @@ $GLOBALS['TL_DCA']['tl_mae_event_cat'] = array
     'palettes' => array
     (
         '__selector__'                => array(''),
-        'default'                     => '{title_legend},title;{layout_legend},cssId,cssClass'
+        'default'                     => '{title_legend},title,alias;{layout_legend},cssId,cssClass'
     ),
 
     // Subpalettes
@@ -137,8 +138,17 @@ $GLOBALS['TL_DCA']['tl_mae_event_cat'] = array
             'exclude'                 => false,
             'search'                  => true,
             'inputType'               => 'text',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>255),
+            'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'alias' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_mae_event_cat']['alias'],
+            'exclude'                 => false,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>50, 'rgxp'=>'alias', 'tl_class'=>'w50', 'unique'=>true),
+            'sql'                     => "varchar(50) NOT NULL default ''"
         ),
         'cssId' => array
         (

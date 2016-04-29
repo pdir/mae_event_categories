@@ -35,11 +35,11 @@ class ModuleFilter extends \Module
     protected function compile()
     {
         $allowAllCats = false;
-        $selectedCat = Input::get('category');
+        $paramName = empty($this->mae_event_catname) ? "category" : $this->mae_event_catname;
+        $selectedCat = Input::get($paramName);
         $this->Template->selectedCategory = empty($selectedCat) ? "all" : $selectedCat;
-        $this->Template->showAllHref = $this->addToUrl('category=all');
+        $this->Template->showAllHref = $this->addToUrl($paramName . '=all');
 
-        $items = array();
         $filterCats = empty($this->event_categories) ? array() : unserialize($this->event_categories);
         if(count($filterCats) == 0) {
             if($this->mae_event_list > 0) {
@@ -58,15 +58,24 @@ class ModuleFilter extends \Module
             }
         }
 
+        $item_ar = array();
         if(count($filterCats) > 0 || $allowAllCats) {
             if($allowAllCats) {
                 $sqlSort = "SELECT * FROM  tl_mae_event_cat ORDER BY title";
+                $objCats = $this->Database->execute($sqlSort);
+                while ($item = $objCats->fetchAssoc()) {
+                    $item_ar[] = $item;
+                }
             }
             else {
-                $sqlSort = "SELECT * FROM  tl_mae_event_cat WHERE id IN (" . implode(",", $filterCats) . ") ORDER BY title";
+                foreach ($filterCats as $catId) {
+                    $objItem = $this->Database->prepare("SELECT * FROM  tl_mae_event_cat WHERE id=?")->execute($catId);
+                    if($objItem->numRows == 1) {
+                        $item_ar[] = $objItem->fetchAssoc();
+                    }
+                }
             }
-            $objCats = $this->Database->execute($sqlSort);
-            while ($item = $objCats->fetchAssoc()) {
+            foreach ($item_ar as $item) {
                 if($selectedCat == $item['id']) {
                     $item['cssClass'] = $item['cssClass'] . " active";
                 }
@@ -76,7 +85,7 @@ class ModuleFilter extends \Module
                 if(empty($item['cssId'])) {
                     $item['cssId'] = "mae_cat_" . $item['id'];
                 }
-                $item['href'] = $this->addToUrl('category=' . $item['id']);
+                $item['href'] = $this->addToUrl($paramName . '=' . (empty($item['alias']) ? $item['id'] : $item['alias']));
                 $items[] = $item;
             }
         } // if have categories
