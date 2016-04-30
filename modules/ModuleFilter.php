@@ -76,7 +76,7 @@ class ModuleFilter extends \Module
                 }
             }
             foreach ($item_ar as $item) {
-                if($selectedCat == $item['id']) {
+                if($selectedCat == $item['id'] || $selectedCat == $item['alias']) {
                     $item['cssClass'] = $item['cssClass'] . " active";
                 }
                 if(!empty($item['cssClass'])) {
