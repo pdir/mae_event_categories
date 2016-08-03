@@ -34,9 +34,12 @@ class ModuleFilter extends \Module
      */
     protected function compile()
     {
-        $allowAllCats = false;
-        $paramName = empty($this->mae_event_catname) ? "category" : $this->mae_event_catname;
-        $selectedCat = Input::get($paramName);
+        $allowAllCats   = false;
+        $paramName      = empty($this->mae_event_catname) ? "category" : $this->mae_event_catname;
+        $selectedCat    = Input::get($paramName);
+        $onlyFutureCats = $this->mae_only_future_cat == '1';
+        $futureCats     = array();
+
         $this->Template->selectedCategory = empty($selectedCat) ? "all" : $selectedCat;
         $this->Template->showAllHref = $this->addToUrl($paramName . '=all');
 
@@ -57,6 +60,9 @@ class ModuleFilter extends \Module
                 $allowAllCats = true;
             }
         }
+        if($onlyFutureCats) {
+            $futureCats = $this->getFutureCategories();
+        }
 
         $item_ar = array();
         if(count($filterCats) > 0 || $allowAllCats) {
@@ -76,6 +82,9 @@ class ModuleFilter extends \Module
                 }
             }
             foreach ($item_ar as $item) {
+                if($onlyFutureCats && !in_array($item['id'], $futureCats)) {
+                    continue;
+                }
                 if($selectedCat == $item['id'] || $selectedCat == $item['alias']) {
                     $item['cssClass'] = $item['cssClass'] . " active";
                 }
@@ -90,5 +99,29 @@ class ModuleFilter extends \Module
             }
         } // if have categories
         $this->Template->items = $items;
+    }
+
+    /**
+     * get all categories, assigned to published events in the future
+     * @return array an array of category ids
+     */
+    protected function getFutureCategories()
+    {
+        $result = array();
+        $now = time();
+        $sqlCat = "SELECT categories FROM tl_calendar_events WHERE published='1' AND (startTime >= " . $now . " OR endTime >= " . $now . ")";
+        $objCat = $this->Database->execute($sqlCat);
+        while ($cat = $objCat->fetchAssoc()) {
+            $eventCats = $cat['categories'];
+            if(!empty($eventCats)) {
+                $eventCats = deserialize($eventCats, true);
+                foreach ($eventCats as $eventCatId) {
+                    if(!in_array($eventCatId, $result)) {
+                        $result[] = (int)$eventCatId;
+                    }
+                }
+            }
+        }
+        return $result;
     }
 }

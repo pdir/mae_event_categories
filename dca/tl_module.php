@@ -29,5 +29,12 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['mae_event_catname'] = array(
     'eval'                    => array('maxlength'=>50, 'tl_class'=>'w50', 'rgxp'=>'alias'),
     'sql'                     => "varchar(50) NOT NULL default ''"
 );
-$GLOBALS['TL_DCA']['tl_module']['palettes']['mae_event_filter'] = '{title_legend},name,type;{mae_setup_legend},mae_event_list,headline,mae_event_catname;{event_cat_legend:hide},event_categories';
+$GLOBALS['TL_DCA']['tl_module']['fields']['mae_only_future_cat'] = array(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['mae_only_future_cat'],
+    'exclude'                 => true,
+    'inputType'               => 'checkbox',
+    'eval'                    => array('tl_class'=>'clr'),
+    'sql'                     => "char(1) NOT NULL default ''"
+);
+$GLOBALS['TL_DCA']['tl_module']['palettes']['mae_event_filter'] = '{title_legend},name,type;{mae_setup_legend},mae_event_list,headline,mae_event_catname,mae_only_future_cat;{event_cat_legend:hide},event_categories';
 ?>
