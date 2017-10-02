@@ -148,6 +148,9 @@ $GLOBALS['TL_DCA']['tl_mae_event_cat'] = array
             'search'                  => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>false, 'maxlength'=>50, 'rgxp'=>'alias', 'tl_class'=>'w50', 'unique'=>true),
+            'save_callback'           => array(
+                array('tl_mae_event_cat', 'generateAlias')
+            ),
             'sql'                     => "varchar(50) NOT NULL default ''"
         ),
         'cssId' => array
@@ -192,6 +195,39 @@ class tl_mae_event_cat extends Backend
             $this->log('Not enough permissions to manage event categories', __METHOD__, TL_ERROR);
             $this->redirect('contao/main.php?act=error');
         }
+    }
+    
+    /**
+     * Auto-generate a category alias if it has not been set yet
+     *
+     * @param mixed         $varValue
+     * @param DataContainer $dc
+     *
+     * @return string
+     *
+     * @throws Exception
+     */
+    public function generateAlias($varValue, DataContainer $dc)
+    {
+        $autoAlias = false;
+        // Generate an alias if there is none
+        if ($varValue == '')
+        {
+            $autoAlias = true;
+            $varValue = StringUtil::generateAlias($dc->activeRecord->title);
+        }
+        $objAlias = $this->Database->prepare("SELECT id FROM tl_mae_event_cat WHERE alias=?")
+                                   ->execute($varValue);
+        // Check whether the category alias exists
+        if ($objAlias->numRows > 1)
+        {
+            if (!$autoAlias)
+            {
+                throw new Exception(sprintf($GLOBALS['TL_LANG']['ERR']['aliasExists'], $varValue));
+            }
+            $varValue .= '-' . $dc->id;
+        }
+        return $varValue;
     }
 
 
