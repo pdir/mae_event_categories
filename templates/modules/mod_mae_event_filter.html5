@@ -1,4 +1,4 @@
-<div class="mod_mae_event_filter block">
+<div class="<?= $this->class ?> block">
     <?php if(!empty($this->headline)) {echo "<" . $this->hl . ">" . $this->headline . "</" . $this->hl . ">";} ?>
     <ul>
         <li class="category all<?php echo ($this->selectedCategory == "all" ? " active" : ""); ?>">
