@@ -1,5 +1,5 @@
 {
-	"name": "marebe1602/mae_event_categories",
+	"name": "pdir/mae_event_categories",
 	"type": "contao-module",
 	"description": "this plugin allows the definition of additional categories for filtering events in eventlist frontend modules",
 	"license": "LGPL-3.0+",
