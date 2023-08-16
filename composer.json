@@ -1,8 +1,8 @@
 {
-	"name": "pdir/mae_event_categories",
-	"type": "contao-module",
-	"description": "this plugin allows the definition of additional categories for filtering events in eventlist frontend modules",
-	"license": "LGPL-3.0+",
+    "name": "pdir/mae_event_categories",
+    "type": "contao-module",
+    "description": "this plugin allows the definition of additional categories for filtering events in eventlist frontend modules",
+    "license": "LGPL-3.0+",
     "keywords": ["contao", "extension", "event", "categories", "category", "filter", "eventlist"],
     "homepage": "http://www.martin-eberhardt.com/mae_event_categories.html",
     "authors":[
