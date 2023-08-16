@@ -1,5 +1,19 @@
-mae_event_categories Changelog
-==============================
+# Changelog
+
+[//]: <> (
+Types of changes
+    Added for new Addeds.
+    Changed for changes in existing functionality.
+    Deprecated for soon-to-be removed Addeds.
+    Removed for now removed Addeds.
+    Fixed for any bug fixes.
+    Security in case of vulnerabilities.
+)
+
+## [1.5.1](https://github.com/pdir/mae_event_categories/tree/1.5.1) – 2023-08-16
+
+- [Fixed] css class added [#16](https://github.com/pdir/mae_event_categories/issues/16) 🤗 [akroii](https://github.com/akroii)
+
 
 Version 1.5.0        (2016-08-03) added 'only filter by categories, assigned to future events' to the event filter module
 Version 1.4.0 RC1    (2016-04-29) added sortable cat filter list and filter url friendlieness
