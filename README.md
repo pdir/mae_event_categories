@@ -1,6 +1,8 @@
 mae_event_categories
 ====================
 
+Forked from https://github.com/marebe1602/mae_event_categories
+
 purpose
 -------
 if you have lots of events and using different calendars is not enough to organize your events, this plugin allows the definition of additional categories for filtering events in eventlist frontend modules.

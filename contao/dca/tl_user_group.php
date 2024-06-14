@@ -1,7 +1,9 @@
 <?php
 
+use contao\System;
+
 /**
- * User settings
+ * Group settings
  *
  *
  * @package   MaeEventCategories
@@ -11,23 +13,27 @@
  */
 
 /**
- * Add a palette to tl_user
+ * Load tl_user language file
  */
-$GLOBALS['TL_DCA']['tl_user']['palettes']['extend'] = str_replace('{calendars_legend}', '{mae_evt_cat_legend},maeEventCat,maeEventCatDefault;{calendars_legend}', $GLOBALS['TL_DCA']['tl_user']['palettes']['extend']);
-$GLOBALS['TL_DCA']['tl_user']['palettes']['custom'] = str_replace('{calendars_legend}', '{mae_evt_cat_legend},maeEventCat,maeEventCatDefault;{calendars_legend}', $GLOBALS['TL_DCA']['tl_user']['palettes']['custom']);
+System::loadLanguageFile('tl_user');
 
 /**
- * Add a new field to tl_user
+ * Add a palette to tl_user_group
  */
-$GLOBALS['TL_DCA']['tl_user']['fields']['maeEventCat'] = array
+$GLOBALS['TL_DCA']['tl_user_group']['palettes']['default'] = \str_replace('{calendars_legend}', '{mae_evt_cat_legend},maeEventCat,maeEventCatDefault;{calendars_legend}', $GLOBALS['TL_DCA']['tl_user_group']['palettes']['default']);
+
+/**
+ * Add a new field to tl_user_group
+ */
+$GLOBALS['TL_DCA']['tl_user_group']['fields']['maeEventCat'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_user']['maeEventCat'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-    'sql'                     => "varchar(32) NOT NULL default ''"
+    'sql'                     => "char(1) NOT NULL default ''"
 );
 
-$GLOBALS['TL_DCA']['tl_user']['fields']['maeEventCatDefault'] = array
+$GLOBALS['TL_DCA']['tl_user_group']['fields']['maeEventCatDefault'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_user']['default_event_categories'],
     'exclude'                 => true,

@@ -188,7 +188,7 @@ class tl_mae_event_cat extends Backend
     /**
      * Check permissions to edit table tl_mae_event_cat
      */
-    public function checkPermission()
+    public function checkPermission(): void
     {
         if (!$this->User->isAdmin && !$this->User->maeEventCat)
         {
@@ -207,7 +207,7 @@ class tl_mae_event_cat extends Backend
      *
      * @throws Exception
      */
-    public function generateAlias($varValue, DataContainer $dc)
+    public function generateAlias($varValue, DataContainer $dc): string
     {
         $autoAlias = false;
         // Generate an alias if there is none
@@ -234,7 +234,7 @@ class tl_mae_event_cat extends Backend
     /**
      * delete references in tl_calendar_events and tl_module
      */
-    public function onDelete(DataContainer $dc)
+    public function onDelete(DataContainer $dc): void
     {
         if (!$dc->id)
         {

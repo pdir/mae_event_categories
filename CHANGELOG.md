@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.6.0](https://github.com/pdir/mae_event_categories/tree/1.6.0) – 2024-06-14
+
+- [Changed] Refactor for Contao 5.3 and Contao 4.13
+
 ## [1.5.2](https://github.com/pdir/mae_event_categories/tree/1.5.2) – 2023-08-16
 
 - [Fixed] css class added [#16](https://github.com/pdir/mae_event_categories/issues/16) 🤗 [akroii](https://github.com/akroii)

@@ -1,0 +1,11 @@
+# Composer
+/composer.lock
+/vendor/
+
+# cypress & node
+cypress.json
+/node_modules/
+
+# PhpUnit
+/.idea
+/.phpunit.result.cache
