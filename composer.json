@@ -29,8 +29,7 @@
     "require":{
       "php":"^8.0",
       "contao/core-bundle": "^4.13 || ^5.3",
-      "contao/calendar-bundle": "^4.13 || ^5.3",
-      "contao-community-alliance/composer-plugin":"^2.4|^3.0"
+      "contao/calendar-bundle": "^4.13 || ^5.3"
     },
     "conflict": {
       "contao/core": "*",
