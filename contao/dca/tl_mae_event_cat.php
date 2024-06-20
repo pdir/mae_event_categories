@@ -85,7 +85,7 @@ $GLOBALS['TL_DCA']['tl_mae_event_cat'] = array
                 'label'               => &$GLOBALS['TL_LANG']['tl_mae_event_cat']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
-                'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
+                'attributes'          => 'onclick="if(!confirm(\'' . ($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null) . '\'))return false;Backend.getScrollOffset()"'
             ),
             'show' => array
             (
@@ -196,7 +196,7 @@ class tl_mae_event_cat extends Backend
             $this->redirect('contao/main.php?act=error');
         }
     }
-    
+
     /**
      * Auto-generate a category alias if it has not been set yet
      *
