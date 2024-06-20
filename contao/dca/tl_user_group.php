@@ -30,7 +30,7 @@ $GLOBALS['TL_DCA']['tl_user_group']['fields']['maeEventCat'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_user']['maeEventCat'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-    'sql'                     => "char(1) NOT NULL default ''"
+    'sql'                     => ['type' => 'boolean', 'default' => false]
 );
 
 $GLOBALS['TL_DCA']['tl_user_group']['fields']['maeEventCatDefault'] = array

@@ -10,6 +10,10 @@
  * @copyright Martin Eberhardt Webentwicklung & Photographie 2015
  */
 
+use Contao\Backend;
+use Contao\DataContainer;
+use Contao\Message;
+use Contao\StringUtil;
 
 /**
  * Table tl_mae_event_cat
@@ -192,7 +196,7 @@ class tl_mae_event_cat extends Backend
     {
         if (!$this->User->isAdmin && !$this->User->maeEventCat)
         {
-            $this->log('Not enough permissions to manage event categories', __METHOD__, TL_ERROR);
+            Message::addError('Not enough permissions to manage event categories');
             $this->redirect('contao/main.php?act=error');
         }
     }

@@ -34,7 +34,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['mae_only_future_cat'] = array(
     'exclude'                 => true,
     'inputType'               => 'checkbox',
     'eval'                    => array('tl_class'=>'clr'),
-    'sql'                     => "char(1) NOT NULL default ''"
+    'sql'                     => ['type' => 'boolean', 'default' => false]
 );
 $GLOBALS['TL_DCA']['tl_module']['palettes']['mae_event_filter'] = '{title_legend},name,type;{mae_setup_legend},mae_event_list,headline,mae_event_catname,mae_only_future_cat;{event_cat_legend:hide},event_categories';
-?>
