@@ -1,4 +1,7 @@
 <?php
+
+use Pdir\MaeEventCategoriesBundle\Controller\FrontendModule\ModuleFilter;
+
 /*
  * MODULES
  */
@@ -14,13 +17,7 @@ array_insert($GLOBALS['BE_MOD']['content'], 2, $eventModAr);
 */
 
 // allow categories table in calendar module
-$GLOBALS['BE_MOD']['content']['calendar']['tables'][] = "tl_mae_event_cat";
-
-
-/*
- * HOOKS
- */
-$GLOBALS['TL_HOOKS']['getAllEvents'][] = array('MaeEventCategories\MaeEvent', 'getAllEvents');
+$GLOBALS['BE_MOD']['content']['calendar']['tables'][] = 'tl_mae_event_cat';
 
 /**
  * Add permissions
@@ -31,4 +28,4 @@ $GLOBALS['TL_PERMISSIONS'][] = 'maeEventCatDefault';
 /**
  * Front end modules
  */
-$GLOBALS['FE_MOD']['events']['mae_event_filter'] = 'MaeEventCategories\ModuleFilter';
+$GLOBALS['FE_MOD']['events']['mae_event_filter'] = ModuleFilter::class;

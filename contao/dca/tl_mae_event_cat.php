@@ -10,6 +10,10 @@
  * @copyright Martin Eberhardt Webentwicklung & Photographie 2015
  */
 
+use Contao\Backend;
+use Contao\DataContainer;
+use Contao\Message;
+use Contao\StringUtil;
 
 /**
  * Table tl_mae_event_cat
@@ -85,7 +89,7 @@ $GLOBALS['TL_DCA']['tl_mae_event_cat'] = array
                 'label'               => &$GLOBALS['TL_LANG']['tl_mae_event_cat']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
-                'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
+                'attributes'          => 'onclick="if(!confirm(\'' . ($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null) . '\'))return false;Backend.getScrollOffset()"'
             ),
             'show' => array
             (
@@ -188,15 +192,15 @@ class tl_mae_event_cat extends Backend
     /**
      * Check permissions to edit table tl_mae_event_cat
      */
-    public function checkPermission()
+    public function checkPermission(): void
     {
         if (!$this->User->isAdmin && !$this->User->maeEventCat)
         {
-            $this->log('Not enough permissions to manage event categories', __METHOD__, TL_ERROR);
+            Message::addError('Not enough permissions to manage event categories');
             $this->redirect('contao/main.php?act=error');
         }
     }
-    
+
     /**
      * Auto-generate a category alias if it has not been set yet
      *
@@ -207,7 +211,7 @@ class tl_mae_event_cat extends Backend
      *
      * @throws Exception
      */
-    public function generateAlias($varValue, DataContainer $dc)
+    public function generateAlias($varValue, DataContainer $dc): string
     {
         $autoAlias = false;
         // Generate an alias if there is none
@@ -234,7 +238,7 @@ class tl_mae_event_cat extends Backend
     /**
      * delete references in tl_calendar_events and tl_module
      */
-    public function onDelete(DataContainer $dc)
+    public function onDelete(DataContainer $dc): void
     {
         if (!$dc->id)
         {

@@ -1,0 +1,12 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  Pdir\MaeEventCategoriesBundle\:
+    resource: ../src/*
+
+  Pdir\MaeEventCategoriesBundle\EventListener\DataContainer\CalendarEventsListener:
+    public: true
+    arguments:
+      - "@database_connection"
