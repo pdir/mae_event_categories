@@ -12,7 +12,6 @@
 
 use Contao\Backend;
 use Contao\DataContainer;
-use Contao\Message;
 use Contao\StringUtil;
 use Contao\System;
 

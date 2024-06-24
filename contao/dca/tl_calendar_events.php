@@ -1,7 +1,12 @@
 <?php
-$GLOBALS['TL_DCA']['tl_calendar_events']['config']['oncreate_callback'][] = array("MaeEventCategories\\MaeEventBe", "setDefaultCategories");
 
-$GLOBALS['TL_DCA']['tl_calendar_events']['palettes']['default'] = \str_replace(";{date_legend}", ";{cat_legend:hide},categories;{date_legend}", $GLOBALS['TL_DCA']['tl_calendar_events']['palettes']['default']);
+use Contao\CoreBundle\DataContainer\PaletteManipulator;
+
+PaletteManipulator::create()
+    ->addField('categories', 'title_legend', 'append')
+    ->applyToPalette('internal', 'tl_calendar_events')
+    ->applyToPalette('article', 'tl_calendar_events')
+    ->applyToPalette('external', 'tl_calendar_events');
 
 $GLOBALS['TL_DCA']['tl_calendar_events']['fields']['categories'] = array
 (
