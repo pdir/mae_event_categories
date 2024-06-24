@@ -23,7 +23,7 @@ namespace Pdir\MaeEventCategoriesBundle\EventListener;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\Database;
 use Contao\FrontendTemplate;
-use Contoa\Input;
+use Contao\Input;
 use Contao\Module;
 use Contao\StringUtil;
 
