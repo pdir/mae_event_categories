@@ -1,8 +1,17 @@
 <?php
 // new categories blob field for use in standard eventlist module
-$GLOBALS['TL_DCA']['tl_module']['palettes']['eventlist']    = \str_replace(';{protected_legend:hide}', ';{event_cat_legend:hide},event_categories;{protected_legend:hide}', $GLOBALS['TL_DCA']['tl_module']['palettes']['eventlist']);
-$GLOBALS['TL_DCA']['tl_module']['palettes']['calendar']     = \str_replace(';{protected_legend:hide}', ';{event_cat_legend:hide},event_categories;{protected_legend:hide}', $GLOBALS['TL_DCA']['tl_module']['palettes']['calendar']);
-$GLOBALS['TL_DCA']['tl_module']['palettes']['eventmenu']    = \str_replace(';{protected_legend:hide}', ';{event_cat_legend:hide},event_categories;{protected_legend:hide}', $GLOBALS['TL_DCA']['tl_module']['palettes']['eventmenu']);
+if (isset($GLOBALS['TL_DCA']['tl_module']['palettes']['eventlist'])) {
+    $GLOBALS['TL_DCA']['tl_module']['palettes']['eventlist']    = \str_replace(';{protected_legend:hide}', ';{event_cat_legend:hide},event_categories;{protected_legend:hide}', $GLOBALS['TL_DCA']['tl_module']['palettes']['eventlist']);
+}
+
+if (isset($GLOBALS['TL_DCA']['tl_module']['palettes']['eventlist'])) {
+    $GLOBALS['TL_DCA']['tl_module']['palettes']['calendar']     = \str_replace(';{protected_legend:hide}', ';{event_cat_legend:hide},event_categories;{protected_legend:hide}', $GLOBALS['TL_DCA']['tl_module']['palettes']['calendar']);
+}
+
+if (isset($GLOBALS['TL_DCA']['tl_module']['palettes']['eventlist'])) {
+    $GLOBALS['TL_DCA']['tl_module']['palettes']['eventmenu']    = \str_replace(';{protected_legend:hide}', ';{event_cat_legend:hide},event_categories;{protected_legend:hide}', $GLOBALS['TL_DCA']['tl_module']['palettes']['eventmenu']);
+}
+
 $GLOBALS['TL_DCA']['tl_module']['fields']['event_categories'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['event_categories'],
