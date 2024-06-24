@@ -22,16 +22,11 @@ namespace Pdir\MaeEventCategoriesBundle\Model;
 
 use Contao\Model;
 
-/**
- * Reads and writes calendars
- *
- * @author Leo Feyer <https://github.com/leofeyer>
- */
 class MaeEventCatModel extends Model
 {
-
     /**
-     * Table name
+     * Table name.
+     *
      * @var string
      */
     protected static $strTable = 'tl_mae_event_cat';

@@ -1,7 +1,7 @@
 <?php
 
 use Pdir\MaeEventCategoriesBundle\Controller\FrontendModule\ModuleFilter;
-
+use Pdir\MaeEventCategoriesBundle\Model\MaeEventCatModel;
 /*
  * MODULES
  */
@@ -29,3 +29,8 @@ $GLOBALS['TL_PERMISSIONS'][] = 'maeEventCatDefault';
  * Front end modules
  */
 $GLOBALS['FE_MOD']['events']['mae_event_filter'] = ModuleFilter::class;
+
+/*
+ * Models
+ */
+$GLOBALS['TL_MODELS']['tl_mae_event_cat'] = MaeEventCatModel::class;

@@ -1,6 +1,6 @@
 <?php
 
-use contao\System;
+use Contao\System;
 
 /**
  * Group settings
@@ -30,7 +30,7 @@ $GLOBALS['TL_DCA']['tl_user_group']['fields']['maeEventCat'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_user']['maeEventCat'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-    'sql'                     => ['type' => 'boolean', 'default' => false]
+    'sql'                     => "varchar(32) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_user_group']['fields']['maeEventCatDefault'] = array

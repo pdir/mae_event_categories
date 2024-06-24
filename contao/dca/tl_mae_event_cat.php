@@ -12,6 +12,7 @@
 
 use Contao\Backend;
 use Contao\DataContainer;
+use Contao\DC_Table;
 use Contao\StringUtil;
 use Contao\System;
 
@@ -24,7 +25,7 @@ $GLOBALS['TL_DCA']['tl_mae_event_cat'] = array
     // Config
     'config' => array
     (
-        'dataContainer'               => 'Table',
+        'dataContainer'               => DC_Table::class,
         'enableVersioning'            => false,
         'sql' => array
         (
@@ -185,7 +186,7 @@ class tl_mae_event_cat extends Backend
     public function __construct()
     {
         parent::__construct();
-        $this->import('BackendUser', 'User');
+        $this->import('Contao\BackendUser', 'User');
     }
 
 

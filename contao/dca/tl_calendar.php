@@ -10,9 +10,9 @@ ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_calendar']['list']['global_operati
     'mae_categories' => array
     (
         'label'               => &$GLOBALS['TL_LANG']['tl_calendar']['categories_label'],
-		'href'                => 'do=calendar&table=tl_mae_event_cat',
+        'href'                => 'do=calendar&table=tl_mae_event_cat',
         'class'               => 'header_new',
-		'attributes'          => 'onclick="Backend.getScrollOffset()" style="padding-left: 22px;background-image: url(\'system/modules/mae_event_categories/assets/cat_icon.png\')"',
+        'attributes'          => 'onclick="Backend.getScrollOffset()" style="padding-left: 22px;background-image: url(\'bundles/pdirmaeeventcategories/cat_icon.png\')"',
         'button_callback'     => array('tl_calendar_categories', 'buttonCategories')
     )
 ));
@@ -24,7 +24,7 @@ class tl_calendar_categories extends Backend
      */
     public function buttonCategories($href, $label, $title, $class, $attributes)
     {
-        $this->import('BackendUser', 'User');
+        $this->import('Contao\BackendUser', 'User');
 
         if (!$this->User->isAdmin && !$this->User->maeEventCat) {
             return "";
