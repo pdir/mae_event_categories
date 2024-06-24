@@ -34,5 +34,5 @@ class MaeEventCatModel extends Model
      * Table name
      * @var string
      */
-    protected static string $strTable = 'tl_mae_event_cat';
+    protected $strTable = 'tl_mae_event_cat';
 }

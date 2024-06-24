@@ -1,11 +1,11 @@
 <?php
 
-use Contao\ArrayUtils;
+use Contao\ArrayUtil;
 use Contao\Backend;
 use Contao\StringUtil;
 
 // new global operation calls categories from within calendar module (therefor the categories table has to be added to the calendar module in config.php)
-ArrayUtils::arrayInsert($GLOBALS['TL_DCA']['tl_calendar']['list']['global_operations'], 1, array
+ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_calendar']['list']['global_operations'], 1, array
 (
     'mae_categories' => array
     (
