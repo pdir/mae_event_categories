@@ -67,6 +67,9 @@ class GetAllEventsListener
             foreach ($arrEvents as $day => $times) {
                 foreach ($times as $time => $events) {
                     foreach ($events as $event) {
+                        if (!is_string($event['categories'])) {
+                            continue;
+                        }
                         $evtCats = \unserialize($event['categories']);
                         if (!\is_array($evtCats)) {
                             $evtCats = array();
