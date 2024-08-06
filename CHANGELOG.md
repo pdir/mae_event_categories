@@ -10,6 +10,11 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.6.1](https://github.com/pdir/mae_event_categories/tree/1.6.1) – 2024-08-06
+
+- [Fixed] wrong template folder
+- [Fixed] TypeError if event has no categories and filtering is set in the module 🤗[memoworker](https://github.com/memoworker)
+
 ## [1.6.0](https://github.com/pdir/mae_event_categories/tree/1.6.0) – 2024-06-14
 
 - [Changed] Refactor for Contao 5.3 and Contao 4.13
