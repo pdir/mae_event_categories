@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * Mae Event Categories feed bundle for Contao Open Source CMS
  *
- * Copyright (c) 2024 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2026 pdir / digital agentur // pdir GmbH
  *
  * @package    mae_event_categories
  * @link       https://github.com/pdir/mae_event_categories
@@ -37,10 +37,15 @@ class GetAllEventsListener
         $modCats    = StringUtil::deserialize($objModule->event_categories, true);
         $hasCatCfg  = \is_array($modCats) && \count($modCats) > 0;
 
-        $filterParam_ar = array('category');
-        $objFilterMod = Database::getInstance()->prepare("SELECT mae_event_catname FROM tl_module WHERE mae_event_catname != '' AND type='mae_event_filter' AND mae_event_list=?")->execute($objModule->id);
+        $filterParam_ar = [];
+        $objFilterMod   = Database::getInstance()->prepare("SELECT mae_event_catname FROM tl_module WHERE mae_event_catname != '' AND type='mae_event_filter' AND mae_event_list=?")->execute($objModule->id);
         while($objFilterMod->fetchAssoc()) {
             $filterParam_ar[] = $objFilterMod->mae_event_catname;
+        }
+
+        // Set default filter parameter if not own parameter is set.
+        if ([] === $filterParam_ar) {
+            $filterParam_ar = ['category'];
         }
 
         foreach ($filterParam_ar as $paramName) {
